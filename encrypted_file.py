@@ -40,11 +40,14 @@ def Encrypt(key, message):
     print(msg)
 
 def Decryption():
+    decrypted_msg = ""
+    Decrypted_message = []
+
     decrpt_key_split = []
     decrypt_message_split = []
 
-    input_key = input("Enter your key")
-    decrypt_message = input("Input your encrypted message")
+    input_key = input("Enter your key: ")
+    decrypt_message = input("Input your encrypted message: ")
 
     initial_decryptkey_split = list(input_key)
     initial_decryptmessage_split = list(decrypt_message)
@@ -55,12 +58,28 @@ def Decryption():
     
     for i in range(len(initial_decryptmessage_split)):
         decrypt_message_split.append(initial_decryptmessage_split[i].upper())
+    
+    #Function of using Viginere Cypher to Decrypt the key and message
+    for i in range(len(decrypt_message_split)):
+        decrypted_key = ((ord(decrypt_message_split[i]) - (ord("A") - 1)) - (ord(decrpt_key_split[i % len(decrpt_key_split)]) - ord("A") - 1)) % 26
+        chr_decrypted_key = chr((decrypted_key) + ord("A"))
+        Decrypted_message.append(chr_decrypted_key)
+
+    #Just so that the outputed message comes in a string instead of a list
+    for i in range(len(Decrypted_message)):
+        msg_initial = str(Decrypted_message[i])
+        new_msg = decrypted_msg +""+ msg_initial
+        decrypted_msg = new_msg 
+    
+    print(decrypted_msg)
+    print(Decrypted_message)
 
 
     
     
 
-Encrypt(key, message)    
+Encrypt(key, message)
+Decryption()    
     
 
 
