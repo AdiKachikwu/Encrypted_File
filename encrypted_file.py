@@ -38,7 +38,24 @@ def Encrypt(key, message):
         
         
     print(msg)
+
+def Decryption():
+    decrpt_key_split = []
+    decrypt_message_split = []
+
+    input_key = input("Enter your key")
+    decrypt_message = input("Input your encrypted message")
+
+    initial_decryptkey_split = list(input_key)
+    initial_decryptmessage_split = list(decrypt_message)
+
+    ##Uppercasing the key and message 
+    for i in range(len(initial_decryptkey_split)):
+        decrpt_key_split.append(initial_decryptkey_split[i].upper())
     
+    for i in range(len(initial_decryptmessage_split)):
+        decrypt_message_split.append(initial_decryptmessage_split[i].upper())
+
 
     
     
