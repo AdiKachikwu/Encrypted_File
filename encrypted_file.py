@@ -27,7 +27,7 @@ def Encrypt(key, message):
     for i in range(len(message_split)):
         #Calculation of Vigenere Cypher
         encrypted_key = ((ord(key_split[i % len(key_split)]) - (ord("A") - 1)) + (ord(message_split[i]) - (ord("A") - 1))) % 26
-        chr_encrypted_key = chr((encrypted_key) + ord("A"))
+        chr_encrypted_key = chr((encrypted_key) + (ord("A") - 1))
         Encrypted_message.append(chr_encrypted_key)
     
     #Just so that the outputed message comes in a string instead of a list
