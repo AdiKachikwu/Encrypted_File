@@ -61,8 +61,8 @@ def Decryption():
     
     #Function of using Viginere Cypher to Decrypt the key and message
     for i in range(len(decrypt_message_split)):
-        decrypted_key = ((ord(decrypt_message_split[i]) - (ord("A") - 1)) - (ord(decrpt_key_split[i % len(decrpt_key_split)]) - ord("A") - 1)) % 26
-        chr_decrypted_key = chr((decrypted_key) + ord("A"))
+        decrypted_key = ((ord(decrypt_message_split[i]) - (ord("A") - 1)) - (ord(decrpt_key_split[i % len(decrpt_key_split)]) - (ord("A") - 1))) % 26
+        chr_decrypted_key = chr((decrypted_key) + (ord("A") - 1))
         Decrypted_message.append(chr_decrypted_key)
 
     #Just so that the outputed message comes in a string instead of a list
